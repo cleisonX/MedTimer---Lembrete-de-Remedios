@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MedTimer - Lembrete de Remédios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- TELA DE LOGIN -->
+        <div id="telaLogin" class="card login-card">
+            <div class="logo-login">
+                <div class="logo-icon">💊</div>
+                <h1>MedTimer</h1>
+            </div>
+            <p class="subtitle">Organize seus medicamentos com segurança</p>
+            
+            <div id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label>📧 E-mail</label>
+                    <input type="email" id="loginEmail" placeholder="seu@email.com" class="input">
+                </div>
+                <div class="form-group">
+                    <label>🔒 Senha</label>
+                    <input type="password" id="loginSenha" placeholder="••••••" class="input">
+                </div>
+                <button id="btnLogin" class="btn-primary">Entrar</button>
+                <button id="btnCadastro" class="btn-secondary">Criar conta</button>
+            </div>
+
+            <div id="cadastroForm" class="login-form" style="display: none;">
+                <div class="form-group">
+                    <label>👤 Nome</label>
+                    <input type="text" id="cadastroNome" placeholder="Seu nome" class="input">
+                </div>
+                <div class="form-group">
+                    <label>📧 E-mail</label>
+                    <input type="email" id="cadastroEmail" placeholder="seu@email.com" class="input">
+                </div>
+                <div class="form-group">
+                    <label>🔒 Senha</label>
+                    <input type="password" id="cadastroSenha" placeholder="mínimo 6 caracteres" class="input">
+                </div>
+                <div class="form-group">
+                    <label>🔒 Confirmar senha</label>
+                    <input type="password" id="cadastroConfirmar" placeholder="digite novamente" class="input">
+                </div>
+                <button id="btnRegistrar" class="btn-primary">Cadastrar</button>
+                <button id="btnVoltarLogin" class="btn-secondary">Voltar</button>
+            </div>
+        </div>
+
+        <!-- TELA PRINCIPAL (escondida inicialmente) -->
+        <div id="telaPrincipal" style="display: none;">
+            <!-- Card de boas-vindas -->
+            <div class="card welcome-card">
+                <div class="user-info">
+                    <span class="user-emoji">👤</span>
+                    <div>
+                        <div id="userName" class="user-name">Usuário</div>
+                        <div class="user-status">✓ Conectado</div>
+                    </div>
+                    <button id="btnSair" class="btn-logout">🚪 Sair</button>
+                </div>
+            </div>
+
+            <!-- Card de Cadastro de Remédio -->
+            <div class="card">
+                <h2>➕ Novo remédio</h2>
+
+                <label>💊 Nome do remédio</label>
+                <input type="text" id="remedio" placeholder="Ex: Amoxicilina, Paracetamol..." autocomplete="off">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label>📅 Data de início</label>
+                        <input type="date" id="dataInicio">
+                    </div>
+                    <div>
+                        <label>🕒 Hora de início</label>
+                        <input type="time" id="horaInicio" value="08:00">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label>⏱️ Intervalo (horas)</label>
+                        <input type="number" id="intervaloHoras" step="1" min="1" value="8">
+                    </div>
+                    <div>
+                        <label>📆 Duração (dias)</label>
+                        <input type="number" id="duracaoDias" step="1" min="0" value="7">
+                        <small style="color: #718096; font-size: 0.7rem;">0 = tratamento contínuo</small>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button id="calcularBtn" class="btn-salvar">✅ Calcular</button>
+                    <button id="salvarBtn" class="btn-salvar">💾 Salvar</button>
+                </div>
+            </div>
+
+            <!-- Card de Lista de Remédios -->
+            <div class="card">
+                <h2>📋 Meus Remédios</h2>
+                <div id="listaRemedios" class="medicamento-lista">
+                    <div class="empty-state">📭 Nenhum remédio cadastrado</div>
+                </div>
+            </div>
+
+            <!-- Card de Resultados -->
+            <div id="resultadoArea" style="display: none;">
+                <div class="card">
+                    <div class="resultado">
+                        <div id="listaAlarmes"></div>
+                        <div id="acoesAdicionais"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" style="display: none;">
+            ☁️ Dados salvos localmente | 🔔 Ative notificações | 📱 Compartilhe no WhatsApp
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

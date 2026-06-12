@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.card, .login-card {
+    background: white;
+    border-radius: 32px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Login específico */
+.login-card {
+    max-width: 450px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.logo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.logo-icon {
+    font-size: 48px;
+}
+
+.logo-login h1 {
+    font-size: 2rem;
+    color: #2d3748;
+    margin: 0;
+}
+
+.subtitle {
+    color: #718096;
+    margin-bottom: 32px;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Estilo padrão para todos os inputs */
+.input, input:not([type="checkbox"]):not([type="button"]):not([type="submit"]) {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: white;
+    font-family: inherit;
+}
+
+/* Estilo específico para input date e time */
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: white;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Cor do texto do placeholder para date/time (webkit) */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="time"]::-webkit-datetime-edit-text,
+input[type="time"]::-webkit-datetime-edit-hour-field,
+input[type="time"]::-webkit-datetime-edit-minute-field {
+    color: #2d3748;
+}
+
+/* Placeholder para quando não tem valor */
+input[type="date"]:invalid::-webkit-datetime-edit,
+input[type="time"]:invalid::-webkit-datetime-edit {
+    color: #a0aec0;
+}
+
+/* Focus em todos os inputs */
+.input:focus, input:focus {
+    outline: none;
+    border-color: #9f7aea;
+    box-shadow: 0 0 0 3px rgba(159,122,234,0.2);
+}
+
+/* Botões */
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+}
+
+.btn-primary:hover {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    width: 100%;
+    background: #f7fafc;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+    padding: 14px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #edf2f7;
+}
+
+/* Welcome card */
+.welcome-card {
+    padding: 16px 24px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-emoji {
+    font-size: 32px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.user-status {
+    font-size: 0.75rem;
+    color: #48bb78;
+}
+
+.btn-logout {
+    margin-left: auto;
+    background: #fc8181;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-logout:hover {
+    background: #f56565;
+    transform: scale(0.95);
+}
+
+/* Títulos */
+h2 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h2::before {
+    content: "💊";
+}
+
+/* Botões de ação */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.btn-group button {
+    flex: 1;
+}
+
+.btn-salvar {
+    background: #48bb78;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-salvar:hover {
+    transform: scale(0.98);
+    background: #38a169;
+}
+
+.btn-whats {
+    background: #25D366;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-whats:hover {
+    background: #128C7E;
+}
+
+.btn-push {
+    background: #ef4444;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-push:hover {
+    background: #dc2626;
+}
+
+/* Resultados */
+.resultado {
+    margin-top: 20px;
+    background: #faf5ff;
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid #e9d8fd;
+}
+
+.alarme-item {
+    background: white;
+    border-radius: 20px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid #9f7aea;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.alarme-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Lista de remédios - CORRIGIDO */
+.medicamento-lista {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.empty-state {
+    text-align: center;
+    color: #a0aec0;
+    padding: 20px;
+}
+
+.med-item {
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.med-item:hover {
+    background: #edf2f7;
+    border-color: #9f7aea;
+}
+
+.med-nome {
+    font-weight: bold;
+    color: #2d3748;
+    font-size: 1rem;
+    padding-right: 50px;
+}
+
+.med-info {
+    font-size: 0.8rem;
+    color: #718096;
+    margin-top: 6px;
+    padding-right: 50px;
+}
+
+.med-duracao {
+    font-size: 0.75rem;
+    color: #718096;
+    margin-top: 4px;
+}
+
+.delete-med {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: #fc8181;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.delete-med:hover {
+    background: #f56565;
+    transform: scale(1.05);
+}
+
+small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.7rem;
+    color: #718096;
+}
+
+footer {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2d3748;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 40px;
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-weight: 500;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Scrollbar */
+.medicamento-lista::-webkit-scrollbar {
+    width: 8px;
+}
+
+.medicamento-lista::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.medicamento-lista::-webkit-scrollbar-thumb {
+    background: #9f7aea;
+    border-radius: 10px;
+}
+
+.medicamento-lista::-webkit-scrollbar-thumb:hover {
+    background: #805ad5;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+    
+    .card, .login-card {
+        padding: 20px 16px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .user-info {
+        flex-wrap: wrap;
+    }
+    
+    .btn-logout {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 8px;
+    }
+    
+    .logo-login h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-icon {
+        font-size: 36px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 400px) {
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+}
