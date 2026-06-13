@@ -68,7 +68,6 @@ function verificarSessao() {
 // ==================== FUNÇÃO PARA LIMPAR CAMPOS ====================
 
 function limparCampos() {
-    // Limpar campos do formulário de remédio
     document.getElementById('remedio').value = '';
     document.getElementById('intervaloHoras').value = '8';
     document.getElementById('duracaoDias').value = '7';
@@ -78,13 +77,10 @@ function limparCampos() {
     const hoje = new Date().toISOString().split('T')[0];
     document.getElementById('dataInicio').value = hoje;
     
-    // Esconder área de resultados
     document.getElementById('resultadoArea').style.display = 'none';
     
-    // Limpar eventos atuais
     ultimosEventos = [];
     
-    // Limpar campos de login/cadastro
     if (document.getElementById('loginEmail')) {
         document.getElementById('loginEmail').value = '';
         document.getElementById('loginSenha').value = '';
@@ -410,7 +406,8 @@ function renderizarListaMedicamentos() {
     container.innerHTML = '';
     medicamentos.forEach((med, idx) => {
         const duracaoTexto = med.duracaoDias === 0 ? '🔄 Contínuo' : `⏱️ ${med.duracaoDias} dias`;
-        const dataInicioFormatada = new Date(med.dataInicio).toLocaleDateString('pt-BR');
+        const [ano, mes, dia] = med.dataInicio.split('-');
+        const dataInicioFormatada = new Date(ano, mes - 1, dia).toLocaleDateString('pt-BR');
         
         const div = document.createElement('div');
         div.className = 'med-item';
@@ -504,7 +501,6 @@ function salvarRemedioAtual() {
     salvarMedicamentos();
     gerarAgenda(novoMed);
     
-    // LIMPAR CAMPOS APÓS SALVAR
     limparCampos();
 }
 
@@ -519,7 +515,6 @@ function mostrarTelaPrincipal() {
         document.getElementById('userName').innerText = usuarioAtual.nome;
     }
     
-    // Limpar campos ao entrar
     limparCampos();
     carregarMedicamentos();
 }
@@ -541,7 +536,6 @@ function mostrarTelaLogin() {
         document.getElementById('cadastroConfirmar').value = '';
     }
     
-    // Resetar formulários
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('cadastroForm').style.display = 'none';
 }
@@ -632,7 +626,6 @@ function configurarEventos() {
     document.getElementById('btnSair').addEventListener('click', () => {
         logout();
         mostrarTelaLogin();
-        // Limpar campos ao sair
         limparCampos();
         mostrarToast("👋 Até logo!");
     });
