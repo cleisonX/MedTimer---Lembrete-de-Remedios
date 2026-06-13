@@ -76,7 +76,7 @@ label {
     font-size: 14px;
 }
 
-/* Estilo padrão para todos os inputs */
+/* Estilo padrão para os inputs */
 .input, input:not([type="checkbox"]):not([type="button"]):not([type="submit"]) {
     width: 100%;
     padding: 12px 16px;
@@ -102,7 +102,7 @@ input[type="time"] {
     cursor: pointer;
 }
 
-/* Cor do texto do placeholder para date/time (webkit) */
+/* Cor do texto do placeholder para date/time */
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
@@ -163,7 +163,6 @@ input[type="time"]:invalid::-webkit-datetime-edit {
     background: #edf2f7;
 }
 
-/* Welcome card */
 .welcome-card {
     padding: 16px 24px;
 }
@@ -309,7 +308,7 @@ hr {
     border-top: 1px solid #e2e8f0;
 }
 
-/* Lista de remédios - CORRIGIDO */
+/* Lista de remédios */
 .medicamento-lista {
     max-height: 400px;
     overflow-y: auto;
